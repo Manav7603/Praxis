@@ -1,0 +1,7 @@
+Observation
+
+Question
+
+Assumption
+
+Experiment
