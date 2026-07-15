@@ -1,0 +1,15 @@
+Praxis Design Review (PDR)
+
+PDR-0002
+Title: CharacterTokenizer Implementation
+Problem: We need a concrete implementation of Tokenizer that splits text into individual characters to validate our abstraction.
+Requirements:
+
+Must map every unique character in a dataset to an integer.
+
+Must gracefully handle Out-Of-Vocabulary (OOV) characters using <UNK>.
+
+Must support <PAD>, <BOS>, and <EOS>.
+
+Vocabulary generation must be deterministic (a known trap: if we iterate a set() without sorting, different machines will assign different IDs to characters, breaking reproducibility).
+Decision: We will use a bidirectional dictionary mapping (str -> int and int -> str). We will serialize to a simple vocab.json file for persistence.
